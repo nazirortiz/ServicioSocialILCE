@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+
+	RewriteEngine On
+	RewriteBase /
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+
+	RewriteRule ^(.*)$ /pruebasnetbeans/index.php/$1 [L] # Without /pruebasnetbeans/ on production
+	ErrorDocument 404 /pruebasnetbeans/index.php
+
+	order allow,deny
+	
+	allow from all
+
+</IfModule>
